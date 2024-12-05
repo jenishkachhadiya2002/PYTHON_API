@@ -33,5 +33,3 @@ def putt (requst,id):
         return Response ({'status':200, 'massage':'RIGHT','payload': serializer.data})
     except Exception as d :
         return Response({'status':403,'massage':'ERROR'})
-    
- 
