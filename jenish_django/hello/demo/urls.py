@@ -3,8 +3,9 @@ from django.urls import path,include
 from.views import *
 
 urlpatterns = [
-    path('',hellos),
-    path('post/',demos),
+    path('',gett),
+    path('post/',postt),
+    path('put/<id>',putt)
 ]
 
 
