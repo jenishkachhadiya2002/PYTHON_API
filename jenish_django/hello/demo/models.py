@@ -37,6 +37,35 @@ STATE_CHOICES=[('A','Andhra Pradesh'),
                 ('U','Uttar Pradesh'),
 ]
 
+
+CITY_CHOICE=[
+('A','AHMADABAD')
+,('A','AMRELI')
+,('A','ANAND')
+,('B','BANSKATHA')
+,('B','BHARUCH')
+,('B','BHAVNAGAR')
+,('D','DAHOD')
+,('D','DANG')
+,('G','GANDHINAGAR')
+,('J','JAMNAGAR')
+,('J','JUNAGADH')
+,('K','KACHCHHBHUJ')
+,('K','KHEDA')
+,('M','MAHESANA')
+,('N','NARMADA')
+,('N','NAVSARI')
+,('P','PANCHMAHAL')
+,('P','PATAN')
+,('P','PORBANDAR')
+,('R','RAJKOT')
+,('S','SABARKATHA')
+,('S','SURAT')
+,('S','SURENDRANAGR')
+,('T','TAPI')
+,('V','VADODRA')
+,('V','VALSAD'),
+]
 class Student(models.Model):
     name = models.CharField(max_length=100)
     age = models.IntegerField(default=18)
@@ -50,6 +79,7 @@ class Student(models.Model):
     birth_date=models.DateField(default=timezone.now)
     photo=models.ImageField()
     country=CountryField()
-    state=models.CharField(max_length=1,choices=STATE_CHOICES,blank=True)
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=True)
+    state=models.CharField(max_length=2,choices=STATE_CHOICES,blank=True)
+    city=models.CharField(max_length=2,choices=CITY_CHOICE,blank=True)
+    gender = models.CharField(max_length=2, choices=GENDER_CHOICES, blank=True)
   
