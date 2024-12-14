@@ -4,82 +4,83 @@ from django.utils import timezone
 from django_countries.fields import CountryField
 
 GENDER_CHOICES = [
-        ('M', 'Male'),
-        ('F', 'Female'),
-        ('O', 'Other'),
+        ( 'Male','Male'),
+        ( 'Female','Female'),
+        ('Other','Other'),
     ]
-STATE_CHOICES=[('A','Andhra Pradesh'),
-               ('A','Arunachal Pradesh'),
-               ('A', 'Assam'),
-               ('B','Bihar'),
-               ('C','Chhattisgarh'),
-               ('D','Delhi'),
-                ('G','Goa'),
-                ('G','Gujarat'), 
-                ('H','Haryana'), 
-                ('H','Himachal Pradesh'), 
-                ('J','Jharkhand'),
-                ('K','Karnataka'),
-                ('K','Kerala'), 
-                ('M','Madhya Pradesh'),
-                ('M','Maharashtra'), 
-                ('M','Manipur'),
-                ('M','Meghalaya'),
-                ('M','Mizoram'),
-                ('M','Nagaland'),
-                ('O','Odisha'),
-                ('P','Punjab'),
-                ('R','Rajasthan'),
-                ('S','Sikkim'),
-                ('T','1Tamil Nadu'),
-                ('T','Telangana'),
-                ('T','Tripura'), 
-                ('U','Uttar Pradesh'),
+STATE_CHOICES=[
+                ('Andhra Pradesh','Andhra Pradesh'),
+                ('Arunachal Pradesh','Arunachal Pradesh'),
+                ('Assam', 'Assam'),
+                ('Bihar','Bihar'),
+                ('Chhattisghar','Chhattisgarh'),
+                ('Delhi','Delhi'),
+                ('Goa','Goa'),
+                ('Gujarat','Gujarat'), 
+                ('Haryana','Haryana'), 
+                ('Himachal Pradesh','Himachal Pradesh'), 
+                ('Jharkhand','Jharkhand'),
+                ('Karnataka','Karnataka'),
+                ('Kerala','Kerala'), 
+                ('Madhya Pradesh','Madhya Pradesh'),
+                ('Maharashtra','Maharashtra'), 
+                ('Manipur','Manipur'),
+                ('Meghalaya','Meghalaya'),
+                ('Mizoram','Mizoram'),
+                ('Nagaland','Nagaland'),
+                ('Odisha','Odisha'),
+                ('Punjab','Punjab'),
+                ('Rajasthan','Rajasthan'),
+                ('Sikkim','Sikkim'),
+                ('Tamil Nadu','Tamil Nadu'),
+                ('Telangana','Telangana'),
+                ('Tripura','Tripura'), 
+                ('Uttar Pradesh','Uttar Pradesh'),
 ]
-
-
 CITY_CHOICE=[
-('A','AHMADABAD')
-,('A','AMRELI')
-,('A','ANAND')
-,('B','BANSKATHA')
-,('B','BHARUCH')
-,('B','BHAVNAGAR')
-,('D','DAHOD')
-,('D','DANG')
-,('G','GANDHINAGAR')
-,('J','JAMNAGAR')
-,('J','JUNAGADH')
-,('K','KACHCHHBHUJ')
-,('K','KHEDA')
-,('M','MAHESANA')
-,('N','NARMADA')
-,('N','NAVSARI')
-,('P','PANCHMAHAL')
-,('P','PATAN')
-,('P','PORBANDAR')
-,('R','RAJKOT')
-,('S','SABARKATHA')
-,('S','SURAT')
-,('S','SURENDRANAGR')
-,('T','TAPI')
-,('V','VADODRA')
-,('V','VALSAD'),
-]
+
+        ('AHMADABAD','AHMADABAD')
+        ,('AMARELI','AMRELI')
+        ,('ANAND','ANAND')
+        ,('BANASKATHA','BANSKATHA')
+        ,('BHARUCH','BHARUCH')
+        ,('BHAVNAGAR','BHAVNAGAR')
+        ,('DAHOD','DAHOD')
+        ,('DANG','DANG')
+        ,('GANDINAGAR','GANDHINAGAR')
+        ,('JAMNAGAR','JAMNAGAR')
+        ,('JUNAGADH','JUNAGADH')
+        ,('KACHHBHUJ','KACHCHHBHUJ')
+        ,('KHEDA','KHEDA')
+        ,('MAHESANA','MAHESANA')
+        ,('NARMADA','NARMADA')
+        ,('NAVSARI','NAVSARI')
+        ,('PANCHMAHAL','PANCHMAHAL')
+        ,('PATAN','PATAN')
+        ,('PORBANDAR','PORBANDAR')
+        ,('RAJKOT','RAJKOT')
+        ,('SABARKATHA','SABARKATHA')
+        ,('SURAT','SURAT')
+        ,('SURENDRAGAR','SURENDRANAGR')
+        ,('TAPI','TAPI')
+        ,('VADODRA','VADODRA')
+        ,('VALSAD','VALSAD'),
+] 
 class Student(models.Model):
-    name = models.CharField(max_length=100)
-    age = models.IntegerField(default=18)
-    add = models.TextField(default='')
+    Name = models.CharField(max_length=100)
+    Age = models.IntegerField(default=18)
+    Address = models.TextField(default='')
     Email = models.EmailField(default='',help_text='enter your email :')
-    mobile=models.CharField(max_length=10)
-    password=models.CharField(max_length=8)
-    confirm_password=models.CharField(max_length=8)
-    date=models.DateField(default=datetime.now())
-    Time=models.TimeField(default=datetime.now())
-    birth_date=models.DateField(default=timezone.now)
-    photo=models.ImageField()
-    country=CountryField()
-    state=models.CharField(max_length=2,choices=STATE_CHOICES,blank=True)
-    city=models.CharField(max_length=2,choices=CITY_CHOICE,blank=True)
-    gender = models.CharField(max_length=2, choices=GENDER_CHOICES, blank=True)
+    Mobile=models.CharField(max_length=10)
+    Password=models.CharField(max_length=8)
+    Confirm_Password=models.CharField(max_length=8)
+    Date=models.DateTimeField(default=timezone.now)
+    Time=models.TimeField(default=timezone.now)
+    Birth_Date=models.DateField(default=datetime.now)
+    Gender = models.CharField(max_length=6, choices=GENDER_CHOICES, blank=True)
+    Country=CountryField(null=True)
+    State=models.CharField(max_length=17,choices=STATE_CHOICES,blank=True)
+    City=models.CharField(max_length=11,choices=CITY_CHOICE,blank=True)
+   
+    
   
